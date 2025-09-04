@@ -1,0 +1,27 @@
+//program to seperate the dry and wet waste using moisture sensor
+
+
+
+const int moisturePin = A0;
+int moistureValue = 0;
+const int threshold = 400;
+void setup()
+{
+Serial.begin(9600);
+pinMode(moisturePin, INPUT);
+}
+void loop()
+{
+moistureValue = analogRead(moisturePin);
+Serial.print("Moisture Value: ");
+Serial.println(moistureValue);
+if (moistureValue < threshold)
+{
+Serial.println("Dry Waste Detected");
+}
+else
+{
+Serial.println("Wet Waste Detected");
+}
+delay(1000);
+}
